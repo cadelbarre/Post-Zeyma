@@ -1,0 +1,27 @@
+.column{
+	padding: 0.4em 0.75em !important;
+}
+
+.navbar-start {
+	margin-right: 0 !important;
+}
+
+.navbar-menu{
+	justify-content: center !important;
+	border-left: 1px solid #f1f1f1;
+	border-right: 1px solid #f1f1f1;
+}
+
+.table tbody, .table thead{
+	font-size: 13px !important;
+}
+
+.card-header-title{
+	font-weight: 400 !important;
+	font-size: 1.2em !important;
+	padding: 1em 2.8em !important;
+}
+
+.pagination{
+	font-size: 0.8em !important;
+}

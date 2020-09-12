@@ -1,32 +1,30 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+      	<transition 
+      	    name="router-animated" mode="out-in"
+      	    leave-active-class="animated fadeOut" 
+      	    enter-active-class="animated fadeIn">
+      	    <router-view/>
+    	</transition>
   </div>
 </template>
 
+<script>
+export default {
+  components:{
+    }
+  }
+</script>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+@import url('./assets/css/style.css');
+@import url('./assets/css/animate.css');
+@import url('./assets/css/post.css');
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.router-link-exact-active {
+  color: #035aa6 !important;
+  font-weight: 400;
+  border-bottom: 2px solid #035aa6;
 }
 </style>
