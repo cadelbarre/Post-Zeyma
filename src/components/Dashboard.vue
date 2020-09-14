@@ -11,14 +11,61 @@
 		<div class="card">
 			<header class="card-header">
 			  <p class="card-header-title">
-			    Listado de Clientes a Llamar
+			    Listado de Clientes
 			  </p>
 			</header>
 			<div class="card-content">
-					<input type="text" v-model="props.filters[props.column.field]">
-					<b-table :data="json.Hoja1" :columns="columns" :paginated="true" :current-page="1" :per-page="10" :hoverable="true">
-					</b-table>
-			
+				<b-input placeholder="Search..."
+					type="search"
+					icon-pack="fas"
+					icon="search"
+					rounded
+					id="Search"
+					v-model="search_query.name">
+				</b-input>
+				<!-- <input class="input" type="text" v-model="search_query.name"> -->
+				<!-- <b-table :data="filter" :columns="columns" :paginated="true" :current-page="1" :per-page="10" :hoverable="true" :default-sort="['DROGUERIA','ASC']">
+				</b-table> -->
+
+				<b-table :data="filter" :paginated="true" :current-page="1" :per-page="10" :hoverable="true" :default-sort="['DROGUERIA','ASC']">
+					<b-table-column label="ID" width="40" numeric v-slot="props">
+						{{ props.row.CIUDAD }}
+					</b-table-column>
+					<b-table-column label="Establecimiento" v-slot="props" :sortable="true">
+						{{ props.row.DROGUERIA }}
+					</b-table-column>
+					<b-table-column label="Nombre de Contacto" v-slot="props" :sortable="true">
+						{{ props.row.CONTACTO }}
+					</b-table-column>
+					<b-table-column label="Teléfono Contacto" v-slot="props" :centered="true" :sortable="true">
+						{{ props.row.TELEFONO }}
+					</b-table-column>
+					<b-table-column label="Celular" v-slot="props" :sortable="true">
+						{{ props.row.CEL }}
+					</b-table-column>
+					<b-table-column label="Ciudad" v-slot="props" :sortable="true">
+						{{ props.row.CIUDAD }}
+					</b-table-column>
+					<b-table-column label="Fecha" v-slot="props" :sortable="true">
+						{{ props.row.FECHA }}
+					</b-table-column>
+					<b-table-column label="Observaciones" v-slot="props">
+						{{ props.row.OBSERVACIONES }}
+					</b-table-column>
+					<b-table-column label="Acción" v-slot="props">
+						<b-button type="is-danger"
+						size="is-small"
+						>
+						<b-icon
+						pack="fas"
+						icon="edit"
+						size="is-small">
+						</b-icon>
+						</b-button>
+					</b-table-column>
+
+
+				</b-table>
 			</div>
 		</div>
 
@@ -34,11 +81,10 @@ export default {
 
   data () {
   	return {
+  		data : json.Hoja1,
   		search_query: {
-  			name: '',
-  			langs: langs
+  			name: ''
   		},
-  		json,
   		columns: [
   		{
   			field: 'id',
@@ -48,9 +94,8 @@ export default {
   			sortable: true
   		},
   		{
-  			field: 'DROGUERIA ',
+  			field: 'DROGUERIA',
   			label: 'Establecimiento',
-  			searchable: true,
   			sortable: true
   		},
   		{
@@ -89,21 +134,21 @@ export default {
   	};
   },
   created(){
-  	console.log(this.table);
   },
   computed: {
   	filter: function() {
   		var name_re = new RegExp(this.search_query.name, 'i')
   		var data = []
+  		var i = 0
   		for (i in this.data) {
-  			if (this.data[i].name.match(name_re)
-  				&& this.search_query.langs.includes(this.data[i].lang)) {
+  			if (this.data[i].DROGUERIA.match(name_re) || this.data[i].CONTACTO.match(name_re)) {
   				data.push(this.data[i])
+  			}
   		}
+  		return data
   	}
-  	return data
-  }
-}
+  },
+
 }
 </script>
 

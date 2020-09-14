@@ -52,7 +52,7 @@
 							<div id="navMenu" class="navbar-menu">
 								<div class="navbar-start">
 									<b-navbar-item tag="router-link" :to="{ path: '/home' }">
-										Tracking
+										Postear Blog
 									</b-navbar-item>
 									<a class="navbar-item" href="admin.html">
 										Orders

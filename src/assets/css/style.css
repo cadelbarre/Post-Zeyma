@@ -105,6 +105,11 @@ a{
     padding-top: calc(1.4em - 1px) !important;
 }
 
+input#Search{
+    width: 20em;
+    margin-left: 1em;
+}
+
 /*--------------  Animacion Boton hover  --------------*/
 .button:before {
     content: "";

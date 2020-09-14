@@ -6,7 +6,7 @@
 		<div class="columns">
 			<div class="column is-12">
 				<!--  -->
-				<Dashboard/>
+				<Post/>
 				
 			</div>
 		</div>
@@ -18,12 +18,14 @@
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
 import Dashboard from '@/components/Dashboard.vue'
+import Post from '@/components/Post.vue'
 
 export default {
 	name: 'Home',
 	components: {
 		Header,
-		Dashboard
+		Dashboard,
+		Post
 	}
 }
 </script>
