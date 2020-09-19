@@ -26,7 +26,7 @@
 									<img :src="require('../assets/img/avatar3.png')" alt="Image">
 								</figure>
 								<small class="ml-2">
-									<!-- Hola, <span class="has-text-info"><strong>{{data.signIn.user.email}}</strong></span><br> -->
+									Hola, <span class="has-text-info"><strong>{{data.signIn.user.email}}</strong></span><br>
 									<span class="tag is-info">Telefonista 1</span>
 								</small>
 							</div>
